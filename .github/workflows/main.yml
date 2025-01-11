@@ -1,4 +1,4 @@
-name: Sync Fork with Conflict Resolution
+name: 同步库
 
 on:
   schedule:
