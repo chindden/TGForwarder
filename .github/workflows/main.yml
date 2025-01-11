@@ -45,4 +45,20 @@ jobs:
             echo "allow_unrelated_histories=false" >> $GITHUB_OUTPUT
           else
             echo "分支历史不相关，需要强制合并"
-            echo "allow_unrelated_hist
+            echo "allow_unrelated_histories=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Merge upstream changes (if needed)
+        if: steps.branch-check.outputs.skip_sync == 'false'
+        run: |
+          git checkout main
+          if [[ "${{ steps.history-check.outputs.allow_unrelated_histories }}" == "true" ]]; then
+            git merge upstream/main --allow-unrelated-histories
+          else
+            git merge upstream/main
+          fi
+
+      - name: Push changes to origin (if needed)
+        if: steps.branch-check.outputs.skip_sync == 'false'
+        run: |
+          git push origin main
