@@ -2,7 +2,7 @@ name: 同步库
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # 每小时同步一次
+    - cron: '0 */3 * * *'  # 每 3 小时同步一次
   workflow_dispatch:  # 允许手动触发
 
 jobs:
@@ -56,6 +56,15 @@ jobs:
             git merge upstream/main --allow-unrelated-histories
           else
             git merge upstream/main
+          fi
+          # 如果合并失败，尝试自动解决冲突
+          if git diff --quiet; then
+            echo "Merge successful."
+          else
+            echo "Merge conflict detected. Attempting to resolve..."
+            git checkout --theirs .  # 选择上游仓库的更改
+            git add .
+            git commit -m "Resolve merge conflict by choosing upstream changes"
           fi
 
       - name: Push changes to origin (if needed)
