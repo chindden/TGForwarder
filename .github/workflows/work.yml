@@ -30,6 +30,8 @@ jobs: # 执行的工作
           pip install -r ./requirements.txt 
  
       - name: Run TGForwarder.py
+        env:
+          tgsession: ${{ secrets.tgsession }}
         run: python TGForwarder_i.py # 执行py文件
 
       - name: Commit and push history.json file
