@@ -32,7 +32,7 @@ jobs: # 执行的工作
       - name: Run TGForwarder.py
         env:
           tgsession: ${{ secrets.tgsession }}
-        run: python TGForwarder_i.py # 执行py文件
+        run: python TGForwarder2.py # 执行py文件
 
       - name: Commit and push history.json file
         run: |
