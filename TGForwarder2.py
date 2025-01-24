@@ -618,8 +618,8 @@ class TGForwarder:
 
 if __name__ == '__main__':
 
-    channels_groups_monitor = ['tingshushare','BooksRealm','Oscar_4Kmovies','tianyi_pd2','hao115','Q66Share', 'yunpanshare', 'dianyingshare', 'alyp_4K_Movies', 'Aliyun_4K_Movies', 'shareAliyun','XiangxiuNB', 'NewQuark|60', 'kuakeyun', 'ucpanpan', 'Quark_Movies', 'ydypzyfx', 'guaguale115', 'ucquark', 'alyp_1',  'oneonefivewpfx','New_Sharing','zaihuayun','yunpanpan','tianyirigeng','NewAliPan','PanjClub','alypzyhzq','tyypzhpd']
-
+   # channels_groups_monitor = ['tingshushare','BooksRealm','Oscar_4Kmovies','tianyi_pd2','hao115','Q66Share', 'yunpanshare', 'dianyingshare', 'alyp_4K_Movies', 'Aliyun_4K_Movies', 'shareAliyun','XiangxiuNB', 'NewQuark|60', 'kuakeyun', 'ucpanpan', 'Quark_Movies', 'ydypzyfx', 'guaguale115', 'ucquark', 'alyp_1',  'oneonefivewpfx','New_Sharing','zaihuayun','yunpanpan','tianyirigeng','NewAliPan','PanjClub','alypzyhzq','tyypzhpd']
+    channels_groups_monitor = ['tingshushare']
     forward_to_channel = 'oyrobin'
     # 监控最近消息数
     limit = 30
