@@ -26,6 +26,8 @@ proxy = (socks.HTTP,proxy_address,proxy_port,proxy_username,proxy_password))
 proxy=(socks.HTTP,http_proxy_list[1][2:],int(http_proxy_list[2]),proxy_username,proxy_password)
 '''
 
+
+
 if os.environ.get("HTTP_PROXY"):
     http_proxy_list = os.environ["HTTP_PROXY"].split(":")
 
@@ -657,7 +659,7 @@ if __name__ == '__main__':
     download_folder = 'downloads'
     api_id = 2934000
     api_hash = "7407f1e353d48363c48df4c8b3904acb"
-    string_session = '1BVtsOKoBuzbewKIdRkhXjCSYoJJcVgmkBZF2KgT8uXKcxlrfnnOikJherXqR4usPqG2Na95TRpFTIZQljDVUg8uRBk-AKtgQL-IBh4_1_5zH5ACjI6_m0a6qvqI_nt1cRdBj_p-lurqa9M6hJZYv9B-Jgrg-XzYsG_hnqlG_F8mpFx3zOvH3RjXYdHbf2E7trkfyjDVWS2kfpc4Fa5_S7xJB8Nwr-LYl8F9p4M7dxiBdNPGB-beMTcsD4nseqYtey1tzvoK_F4PUSp2XOP8B4lKouYisxcE9Pge-YyC0JCbKZuTKwqLMrg2NKV0bBGdW3b4GizyB1H84Syw4DSZGZp2rCY0MNvc='
+    string_session = os.getenv('tgsession')
     # 默认不开启代理
     proxy = None
     # 首次检测自己频道最近checknum条消息去重，后续检测累加已转发的消息数，如果当日转发数超过checknum条，则检测当日转发总数
