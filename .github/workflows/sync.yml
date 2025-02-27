@@ -39,6 +39,9 @@ jobs:
         run: |
           git add -A
           git commit -m "Auto-resolved merge conflicts" || true
+          git reset -- .github/workflows/* 
+          # 排除工作流文件
+          git commit -m "Auto-resolved merge conflicts (excluded workflow files)"
 
       # 6. 推送合并后的代码到远程仓库
       - name: Push changes to origin
